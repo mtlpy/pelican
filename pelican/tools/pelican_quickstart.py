@@ -192,12 +192,12 @@ needed by Pelican.
 
     try:
         os.makedirs(os.path.join(CONF['basedir'], 'content'))
-    except OSError, e:
+    except OSError as e:
         print('Error: {0}'.format(e))
 
     try:
         os.makedirs(os.path.join(CONF['basedir'], 'output'))
-    except OSError, e:
+    except OSError as e:
         print('Error: {0}'.format(e))
 
     try:
@@ -210,7 +210,7 @@ needed by Pelican.
                 template = string.Template(line)
                 fd.write(template.safe_substitute(conf_python))
             fd.close()
-    except OSError, e:
+    except OSError as e:
         print('Error: {0}'.format(e))
 
     try:
@@ -219,7 +219,7 @@ needed by Pelican.
                 template = string.Template(line)
                 fd.write(template.safe_substitute(CONF))
             fd.close()
-    except OSError, e:
+    except OSError as e:
         print('Error: {0}'.format(e))
 
     if mkfile:
@@ -229,7 +229,7 @@ needed by Pelican.
                     template = string.Template(line)
                     fd.write(template.safe_substitute(CONF))
                 fd.close()
-        except OSError, e:
+        except OSError as e:
             print('Error: {0}'.format(e))
 
     if develop:
@@ -245,7 +245,7 @@ needed by Pelican.
                     fd.write(template.safe_substitute(conf_shell))
                 fd.close()
                 os.chmod((os.path.join(CONF['basedir'], 'develop_server.sh')), 0755)
-        except OSError, e:
+        except OSError as e:
             print('Error: {0}'.format(e))
 
     print('Done. Your new project is available at %s' % CONF['basedir'])

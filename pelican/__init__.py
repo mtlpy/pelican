@@ -311,14 +311,14 @@ def main():
                                        "Nothing to generate.")
                         files_found_error = False
                     time.sleep(1)  # sleep to avoid cpu load
-                except Exception, e:
+                except Exception as e:
                     logger.warning(
                         "Caught exception \"{}\". Reloading.".format(e)
                     )
                     continue
         else:
             pelican.run()
-    except Exception, e:
+    except Exception as e:
         logger.critical(unicode(e))
 
         if (args.verbosity == logging.DEBUG):

@@ -259,7 +259,7 @@ def fields2pelican(fields, out_markup, output_path, dircat=False, strip_raw=Fals
                 elif rc > 0:
                     error = "Please, check your Pandoc installation."
                     exit(error)
-            except OSError, e:
+            except OSError as e:
                 error = "Pandoc execution failed: %s" % e
                 exit(error)
 

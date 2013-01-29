@@ -323,7 +323,7 @@ class ArticlesGenerator(Generator):
             try:
                 signals.article_generate_preread.send(self)
                 content, metadata = read_file(f, settings=self.settings)
-            except Exception, e:
+            except Exception as e:
                 logger.warning(u'Could not process %s\n%s' % (f, str(e)))
                 continue
 
@@ -450,7 +450,7 @@ class PagesGenerator(Generator):
                 exclude=self.settings['PAGE_EXCLUDES']):
             try:
                 content, metadata = read_file(f, settings=self.settings)
-            except Exception, e:
+            except Exception as e:
                 logger.warning(u'Could not process %s\n%s' % (f, str(e)))
                 continue
             signals.pages_generate_context.send(self, metadata=metadata)

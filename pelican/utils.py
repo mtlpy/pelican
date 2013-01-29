@@ -137,7 +137,7 @@ def clean_output_dir(path):
     if not os.path.isdir(path):
         try:
             os.remove(path)
-        except Exception, e:
+        except Exception as e:
             logger.error("Unable to delete file %s; %e" % path, e)
         return
 
@@ -148,13 +148,13 @@ def clean_output_dir(path):
             try:
                 shutil.rmtree(file)
                 logger.debug("Deleted directory %s" % file)
-            except Exception, e:
+            except Exception as e:
                 logger.error("Unable to delete directory %s; %e" % file, e)
         elif os.path.isfile(file) or os.path.islink(file):
             try:
                 os.remove(file)
                 logger.debug("Deleted file/link %s" % file)
-            except Exception, e:
+            except Exception as e:
                 logger.error("Unable to delete file %s; %e" % file, e)
         else:
             logger.error("Unable to delete %s, file type unknown" % file)
@@ -333,6 +333,6 @@ def set_date_tzinfo(d, tz_name=None):
 def mkdir_p(path):
     try:
         os.makedirs(path)
-    except OSError, e:
+    except OSError as e:
         if e.errno != errno.EEXIST:
             raise
